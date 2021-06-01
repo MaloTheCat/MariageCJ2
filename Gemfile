@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # adding my gems
 gem 'airrecord'
 gem 'simple_form'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

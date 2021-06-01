@@ -1,4 +1,4 @@
-Airrecord.api_key = "keylk6lasIPdUmmEI"
+Airrecord.api_key = ENV["AIRTABLE_API_KEY"]
 
 class ContributorController < ApplicationController
   def index
@@ -18,14 +18,21 @@ class ContributorController < ApplicationController
   end
 
   def create
+    selected_gift = Gift.find(params[:contributor][:gift_id])
     @new_contribution = Contributor.create(
       "id" => params[:contributor][:id].to_i,
-      "gift_id" => params[:contributor][:gift_id].to_i,
+      "gift_id" => selected_gift["id"].to_i,
       "name" => params[:contributor][:name],
       "contribution" => params[:contributor][:contribution].to_i,
     )
     @new_contribution.save
+
+    selected_gift["remainingPrice"] -= params[:contributor][:contribution].to_i
+    selected_gift.save
+
     redirect_to root_path
+
+
   end
 
   def edit

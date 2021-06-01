@@ -1,5 +1,4 @@
-# Airrecord.api_key = ENV["AIRTABLE_API_KEY"]
-Airrecord.api_key = "keylk6lasIPdUmmEI"
+Airrecord.api_key = ENV["AIRTABLE_API_KEY"]
 
 class GiftController < ApplicationController
   # before_action :find_contributor, only: [:index, :show]

@@ -9,5 +9,5 @@ class Contributor < Airrecord::Table
   self.base_key = "appsnmy0OMuSEkwJS"
   self.table_name = "Contributors"
 
-  has_many :gift, class: "Gift", column: "gift"
+  belongs_to :gift, class: "Gift", column: "gift"
 end
