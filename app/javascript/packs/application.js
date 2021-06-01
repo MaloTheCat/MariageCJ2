@@ -6,6 +6,10 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
+import { initContribution } from '../plugins/init_contribution';
 
-Rails.start()
-Turbolinks.start()
+document.addEventListener('turbolinks:load', () => {
+  Rails.start();
+  Turbolinks.start();
+  initContribution();
+})

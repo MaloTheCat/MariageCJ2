@@ -1,0 +1,18 @@
+<h2>Create a gift</h2>
+
+<%= simple_form_for(:gift, url: gift_index_path) do |f| %>
+  <%= f.input :id, as: :integer, as: :hidden,
+              input_html: { value: (Gift.all.count)+1 }
+  %>
+  <%= f.input :gift %>
+  <%#= f.input :name %>
+  <%= f.input :initialPrice, as: :integer %>
+  <%= f.input :remainingPrice, as: :integer %>
+  <%= f.submit %>
+  <%#= f.button :button,
+  "Save".html_safe, data: {
+    disable_with: 'Saving...'
+  } %>
+<% end %>
+
+<%= link_to "back", root_path %>

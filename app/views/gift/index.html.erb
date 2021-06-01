@@ -2,6 +2,7 @@
   <h2>Wedding gifts</h2>
 </div>
 
+<%= link_to "new gift", new_gift_path %>
 
 <% @gifts.each do |gift| %>
   <% if !gift.fields.empty? %>
@@ -16,8 +17,11 @@
         </div>
         €
       </p>
-      <%= link_to "participer", "#{gift_path(gift.id)}" %>
+      <%#= link_to "Show", "#{gift_path(gift.id)}" %>
+      <%= link_to "Edit", edit_gift_path(gift.id) %>
+      <br />
     </div>
   <% end %>
 <% end %>
+
 

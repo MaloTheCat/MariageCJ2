@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: "gifts#index"
-  resources :gifts
+  root to: "gift#index"
+  resources :gift, only: [ :index, :show, :new, :create, :update, :edit ]
 end

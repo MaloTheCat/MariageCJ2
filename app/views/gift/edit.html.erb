@@ -1,0 +1,40 @@
+<h2>edit page</h2>
+
+Initial Price: <%= @gift_update["initialPrice"] %>
+<br />
+Remaining Price: <%= @gift_update["remainingPrice"] %>
+<hr />
+<%= simple_form_for :gift, url: gift_path, method: :put, defaults: { input_html: { class: 'participateBtn' } } do |f| %>
+  <%= f.input :name,
+              label: "Votre NOM et prénom",
+              required: false
+              %>
+  <%= f.input :submitedValue, as: :integer,
+              label: "Votre participation",
+              input_html: { class: "contribution" },
+              required: false
+              %>
+  <hr />
+  <%= f.input :remainingPrice, as: :integer,
+              required: false
+              %>
+  <%= f.button :button,
+              "Participer".html_safe, data: { disable_with: 'En cours...' }
+              %>
+<% end %>
+<hr />
+<%= link_to "back", gift_path %>
+
+
+
+
+  <%#= f.input :id, as: :integer,
+              input_html: { value: @gift_update["id"] }
+              %>
+  <%#= f.input :gift,
+              input_html: { value: @gift_update["gift"] }
+              %>
+  <%#= f.input :initialPricePrice, as: :integer,
+              input_html: { value: @gift_update["initialPrice"] }
+              %>
+  <%#= f.submit %>

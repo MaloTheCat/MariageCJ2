@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,7 +14,19 @@
   <body>
     <%= yield %>
     <script>
-      const value_submited = document.querySelectorAll('.value_submited');
+      // let contribution = 0;
+      // const participateBtn = ""
+
+      // const valueSubmited = () => {
+      //   const participateBtn = document.querySelector('participateBtn');
+      //   const contribution = document.querySelector('.contribution');
+
+      //   participateBtn.addEventListener('submit', function(e) {
+
+      //     console.log('coucou');
+      //   })
+
+      // }
     </script>
   </body>
 </html>
