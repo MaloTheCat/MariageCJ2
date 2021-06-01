@@ -2,12 +2,25 @@
 Airrecord.api_key = "keylk6lasIPdUmmEI"
 
 class GiftController < ApplicationController
+  # before_action :find_contributor, only: [:index, :show]
+  before_action :check_contributor, only: []
+
   def index
     @gifts = Gift.all(sort: { "id" => "desc" })
+    @contributors = Contributor.all
+
   end
 
   def show
     @gift = Gift.find(params[:id])
+    # @gift.contributors
+
+    # @contributors = Contributor.all
+    # @gift.contributors = @contributors  # => list de tous les contributeurs du gift
+
+    # select @contributor for id_gift == id of @gift
+    # @contributor = Contributor.find(params[:id])
+    # @contributor["gift_id"] => @gift["id"]
   end
 
   def new
@@ -65,15 +78,21 @@ class GiftController < ApplicationController
     redirect_to root_path, notice: "Ok"
   end
 
-  #private
-#
-#  #def gift_params
-#  #  params.require(:gifts).permit(
-#  #    :gift,
-#  #    :name,
-#  #    :initialPrice,
-#  #    :remainingPrice
-#  #    )
+  private
+
+  # def check_contributors
+  #   if contributor["gift_id"] == gift.fields["id"]
+
+  #   end
+  # end
+
+   #def gift_params
+   #  params.require(:gifts).permit(
+   #    :gift,
+   #    :name,
+   #    :initialPrice,
+   #    :remainingPrice
+ #    )
   #end
 
 end

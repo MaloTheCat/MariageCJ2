@@ -1,0 +1,11 @@
+<h1>Je suis ici</h1>
+
+<%= simple_form_for(:contributor, url: contributor_index_path) do |f| %>
+  <%= f.input :id, as: :integer, as: :hidden,
+              input_html: { value: (Contributor.all.count)+1 }
+  %>
+  <%= f.input :gift_id, as: :hidden, :input_html => { value: Gift.find(params["format"])["id"] } %>
+  <%= f.input :name %>
+  <%= f.input :contribution, as: :integer %>
+  <%= f.submit %>
+<% end %>
