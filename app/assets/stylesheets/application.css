@@ -1,15 +1,170 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#section2, #section3 {
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  padding: 50px;
+}
+
+h1, h3 {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 2.7em;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Stringfellows";
+  font-size: 7em;
+  letter-spacing: .05em;
+}
+
+h3 {
+  font-size : 6em;
+}
+
+#days {
+  display: inline-block;
+}
+
+.background-img {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
+
+.container-title {
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100vh;
+}
+
+/*---- Section 2 ----*/
+
+#section2 > img:nth-child(1), img:nth-child(2) {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.container-core > img:nth-of-type(2), img:nth-of-type(3) {
+  width: 30%;
+  display: block;
+  margin: auto;
+  padding: 50px 0;
+  /*padding-bottom: 50px;*/
+}
+
+.container-square {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.container-square > img {
+  width: 49%;
+  flex-grow: 1;
+  padding: 5px;
+}
+.container-core {
+
+}
+
+p {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/*---- Section 3 ----*/
+
+.myBtn:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.header-grid-2, .header-grid-3, .header-grid-4 {
+  border-left: 2px solid #C0C0C0;
+  text-align: center;
+  align-content: center;
+  margin: auto;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: auto 100px 100px 100px;
+  grid-template-rows: repeat(1, 50px);
+  background-color: rgba(208, 192, 220, .5);
+}
+
+.items > li {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 1.4em;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+
+.bck-pink {
+  background-color: rgba(208, 192, 220, .5);
+}
+
+.bck-green {
+  background-color: rgba(147, 178, 154, .5);
+}
+
+.items > li:nth-child(2), li:nth-child(3), li:nth-child(4) {
+  border-left: 2px solid #C0C0C0;
+  justify-content: center;
+  height: 35px;
+  margin: auto 0;
+}
+
+/*---- Footer ----*/
+
+footer {
+  margin-top: 50px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer > p {
+  font-size: 1em;
+  color: #666666;
+  opacity: .4;
+}
+
+/*---- Form ----*/
+
+.btn-form-contribute {
+  background-color: rgba(147, 178, 154, 1);
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 1.2em;
+  border-style: none;
+}
+

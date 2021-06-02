@@ -1,29 +1,65 @@
-<div style= "text-align: center; border: 2px solid black; margin-bottom: 15px;">
-  <h2>Wedding gifts</h2>
+<div id="section3">
+
+  <ul id="table" class="container-grid">
+
+    <div class="items" style="background-color: white;"> <!-- Table's Head -->
+      <div class="header-grid-1"></div>
+      <div class="header-grid-2">
+        Montant <strong>Initial</strong>
+      </div>
+      <div class="header-grid-3">
+        Montant <strong>Restant</strong>
+      </div>
+      <div class="header-grid-4">
+        Votre <strong>Participation</strong>
+      </div>
+    </div>
+
+    <% @gifts.each_with_index do |gift, index| %>
+      <% if !gift.fields.empty? %>
+        <!-- <div href="" class="myBtn" id="link"> -->
+        <%= link_to new_contributor_path(gift.id) do %>
+
+          <% if index.odd? %>   <!-- lignes impaires -->
+            <div class="items bck-pink">
+              <li style="padding-left: 20px;"><%= gift.fields["gift"] %></li>
+              <% unless gift.fields["remainingPrice"].nil? %>
+                <li><%= gift.fields["initialPrice"] %>€</li>
+                <li><%= gift.fields["remainingPrice"]%>€</li>
+              <% else %>
+                <li>-</li>
+                <li>-</li>
+              <% end %>
+            </div>
+
+            <% else %>    <!-- lignes paires -->
+              <div class="items bck-green">
+                <li style="padding-left: 20px;"><%= gift.fields["gift"] %></li>
+                <% unless gift.fields["remainingPrice"].nil? %>
+                  <li><%= gift.fields["initialPrice"] %>€</li>
+                  <li><%= gift.fields["remainingPrice"]%>€</li>
+                <% else %>
+                  <li>-</li>
+                  <li>-</li>
+                <% end %>
+              <%#= link_to "participate", new_contributor_path(gift.id) %>
+              </div>
+
+              <%#= link_to "Show", "#{gift_path(gift.id)}" %>
+              <%#= link_to "Edit", edit_gift_path(gift.id) %>
+              <!-- </div> -->
+          <% end %>
+        <% end %>
+        <!-- </div> -->
+      <% end %>
+    <% end %>
+  </ul>
 </div>
 
-<%#= link_to "new gift", new_gift_path %>
-<% @gifts.each do |gift| %>
-  <% if !gift.fields.empty? %>
-    <div style= "margin-bottom: 25px; padding: 20px; text-align: center; border: solid 1px #e1e1e1; background-color: #fff ;box-shadow: 0px 5px 15px -2px rgba(0,0,0,0.18);">
-      <div style="font-size: 1.2em">
-        <p>Id: <%= gift.fields["id"] %></p>
-        <p>Name: <%= gift.fields["gift"] %></p>
-        <% unless gift.fields["remainingPrice"].nil? %>
-          <p>Initial price: <%= gift.fields["initialPrice"] %>€</p>
-          <p>Remaining price: <%= gift.fields["remainingPrice"]%>€</p>
-        <% end %>
-        <p style= "display:inline">Contribution:
-          <div class="value_submited" style="display:inline;">
-            0
-          </div>
-          €
-        </p>
-        <%#= link_to "Show", "#{gift_path(gift.id)}" %>
-        <%#= link_to "Edit", edit_gift_path(gift.id) %>
-        <%= link_to "participate", new_contributor_path(gift.id) %>
-      </div>
 
-    </div>
-  <% end %>
-<% end %>
+<!-- ---------------------- -->
+
+
+<footer>
+  <p>Réalisation unique pour la célébration de Cindy & Jérémie // Jonathan V. // 2021</p>
+</footer>
