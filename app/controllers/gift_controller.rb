@@ -5,7 +5,7 @@ class GiftController < ApplicationController
   before_action :check_contributor, only: []
 
   def index
-    @gifts = Gift.all(sort: { "id" => "desc" })
+    @gifts = Gift.all(sort: { "id" => "asc" })
     @contributors = Contributor.all
 
   end

@@ -2,7 +2,7 @@ Airrecord.api_key = ENV["AIRTABLE_API_KEY"]
 
 class ContributorController < ApplicationController
   def index
-    @contributors = Contributor.all(sort: { "id" => "desc" })
+    @contributors = Contributor.all
   end
 
   def show
@@ -26,13 +26,14 @@ class ContributorController < ApplicationController
       "contribution" => params[:contributor][:contribution].to_i,
     )
     @new_contribution.save
-
-    selected_gift["remainingPrice"] -= params[:contributor][:contribution].to_i
+    # raise
+    if selected_gift["remainingPrice"].nil?
+      selected_gift["totalPrice"] += params[:contributor][:contribution].to_i
+    else
+      selected_gift["remainingPrice"] -= params[:contributor][:contribution].to_i
+    end
     selected_gift.save
-
     redirect_to root_path
-
-
   end
 
   def edit

@@ -7,9 +7,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
 // import { initContribution } from '../plugins/init_contribution';
+import { initCountdown } from '../controllers/countdown';
 
-document.addEventListener('turbolinks:load', () => {
+// document.addEventListener('turbolinks:load', () => {
   Rails.start();
   Turbolinks.start();
+  initCountdown();
   // initContribution();
-})
+// })

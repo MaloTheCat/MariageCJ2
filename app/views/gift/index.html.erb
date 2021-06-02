@@ -1,36 +1,75 @@
+<div class="background-img">
+  <div class="container-title">
+    <h1>Liste de Mariage</h1>
+    <h2>Cindy&ensp;& Jérémie</h2>
+    <h3>J - <div id="days"></div><div id="end"></div></h3>
+  </div>
+</div>
+<div id="section2">
+  <img src="assets/hero-banner.png" alt="Mariage Hero Banner">
+    <div class="container-core">
+      <p>La tradition des mariages invite à partager une liste de mariage.
+      Depuis 10 ans que nous sommes ensemble, nous avons su nous équiper de sorte à créer notre petit cocon.
+      Cependant nos choix de vie ont fait que nous avons peu voyagé en amoureux.
+      A ce titre nous souhaitons effectuer notre voyage de noces en Martinique.</p>
+      <img src="assets/diamant-martinique.jpg" alt="Rocher du Diamant Martinique">
+      <p>Ainsi nous réalisons cette liste de mariage autour de cet évènement que nous planifions en février 2022.
+      </br></br>
+      A travers ce site internet vous allez pouvoir contribuer à notre voyage de noces en vous positionnant sur différents cadeaux.
+      Vous pouvez soit vous engager sur un montant en vue de le mettre dans l’urne
+      (espèce, chèque, mais ne mettez pas un bras car l’urne est trop petite),
+      soit en effectuant directement le paiement en ligne via votre compte paypal.</p>
+      <img src="assets/arrow.png" alt="Arrow separation">
+      <p>Si vous avez gagné au loto, à un jeu à gratter, ou que vous venez d’avoir une augmentation,
+      vous pouvez vous positionner sur l’intégralité d’un cadeau (faites vous plaisir, nous sommes preneurs).
+      </br></br>
+      Vous pouvez également vous positionner sur une partie d’un ou de plusieurs cadeaux.
+      Une fois validé, le montant restant apparaitra pour les autres personnes se connectant.
+      </br></br>
+      Enfin une dernière possibilité est la participation libre. Vous verrez c’est tout en bas.
+      Cette participation correspond à une cagnotte qui pourra compléter des cadeaux qui n’ont pas atteint le montant à 100%,
+      ou bien nous permettre de faire d’autres activités une fois en Martinique.
+      </br></br>
+      Pour vous encourager à nous faire plaisir, voici notre but :</p>
+      <div class="container-square">
+        <img src="assets/plongee-tortue.jpg" alt="Plongée tortue Martinique">
+        <img src="assets/restaurant.jpg" alt="Restaurant Martinique">
+        <img src="assets/rocher-diamant.jpg" alt="Rocher du Diamant Martinique">
+        <img src="assets/salines.jpg" alt="Plage les Salines Martinique">
+      </div>
+      <p>Sélectionnez la ou les lignes auxquels vous souhaitez participer :</p>
+      <img src="assets/alliances.png" alt="Alliances C&J">
+    </div>
+  </div>
+</div>
 <div id="section3">
 
   <ul id="table" class="container-grid">
 
     <div class="items" style="background-color: white;"> <!-- Table's Head -->
-      <div class="header-grid-1"></div>
+      <div class="header-grid-1">
+      </div>
       <div class="header-grid-2">
         Montant <strong>Initial</strong>
       </div>
       <div class="header-grid-3">
         Montant <strong>Restant</strong>
       </div>
-      <div class="header-grid-4">
-        Votre <strong>Participation</strong>
-      </div>
     </div>
 
     <% @gifts.each_with_index do |gift, index| %>
       <% if !gift.fields.empty? %>
-        <!-- <div href="" class="myBtn" id="link"> -->
         <%= link_to new_contributor_path(gift.id) do %>
+          <div class="myBtn">
 
-          <% if index.odd? %>   <!-- lignes impaires -->
-            <div class="items bck-pink">
-              <li style="padding-left: 20px;"><%= gift.fields["gift"] %></li>
-              <% unless gift.fields["remainingPrice"].nil? %>
-                <li><%= gift.fields["initialPrice"] %>€</li>
-                <li><%= gift.fields["remainingPrice"]%>€</li>
-              <% else %>
-                <li>-</li>
-                <li>-</li>
-              <% end %>
-            </div>
+            <% if index.odd? %>   <!-- lignes impaires -->
+              <div class="items bck-pink">
+                <li style="padding-left: 20px;"><%= gift.fields["gift"] %></li>
+                <% unless gift.fields["remainingPrice"].nil? %>
+                  <li><%= gift.fields["initialPrice"] %>€</li>
+                  <li><%= gift.fields["remainingPrice"]%>€</li>
+                <% end %>
+              </div>
 
             <% else %>    <!-- lignes paires -->
               <div class="items bck-green">
@@ -38,27 +77,18 @@
                 <% unless gift.fields["remainingPrice"].nil? %>
                   <li><%= gift.fields["initialPrice"] %>€</li>
                   <li><%= gift.fields["remainingPrice"]%>€</li>
-                <% else %>
-                  <li>-</li>
-                  <li>-</li>
                 <% end %>
-              <%#= link_to "participate", new_contributor_path(gift.id) %>
               </div>
+            <%#= link_to "Show", "#{gift_path(gift.id)}" %>
+            <%#= link_to "Edit", edit_gift_path(gift.id) %>
+            <% end %>
 
-              <%#= link_to "Show", "#{gift_path(gift.id)}" %>
-              <%#= link_to "Edit", edit_gift_path(gift.id) %>
-              <!-- </div> -->
-          <% end %>
+          </div>
         <% end %>
-        <!-- </div> -->
       <% end %>
     <% end %>
   </ul>
 </div>
-
-
-<!-- ---------------------- -->
-
 
 <footer>
   <p>Réalisation unique pour la célébration de Cindy & Jérémie // Jonathan V. // 2021</p>
