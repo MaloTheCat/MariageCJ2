@@ -44,14 +44,14 @@ h3 {
 
 .background-img {
   /*background-image: url("background.jpg");*/
-  background-image: url("https://res.cloudinary.com/dhj5ygysw/image/upload/v1623154938/background_mp2lmd.jpg");
+  background-image: url("https://res.cloudinary.com/dhj5ygysw/image/upload/v1623154938/background2_ut6phb.jpg");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: cover;
 }
 
 .container-title {
-  backdrop-filter: blur(10px);
+  /*backdrop-filter: blur(10px);*/
   display: flex;
   flex-direction: column;
   justify-content: center;
