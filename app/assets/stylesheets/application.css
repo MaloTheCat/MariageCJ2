@@ -46,7 +46,7 @@ h1, h3 {
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1, h4 {
   font-size: 2.7em;
   font-weight: 400;
 }
@@ -59,6 +59,13 @@ h2 {
 
 h3 {
   font-size : 6em;
+}
+
+h4 {
+  color:  white;
+  text-align: center;
+  font-family: "Stringfellows";
+  padding: 30px 0 15px 0 ;
 }
 
 #days {
@@ -177,7 +184,64 @@ footer > p {
   opacity: .4;
 }
 
-/*---- Form ----*/
+/*---- Form on new contribution ----*/
+
+.container {
+  background-color: rgba(230, 230, 230, .6);
+  border-radius: 16px;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  margin-top: auto;
+  margin-top: 20%;
+  padding-bottom: 30px;
+}
+
+.anyway {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  /*border: 2px solid green;*/
+  justify-content: center;
+  text-align: center;
+}
+
+.line-wrapper {
+  /*border: 2px solid blue;*/
+  max-width: 300px;
+  margin: auto;
+}
+
+input.string, input.numeric {
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  width: 90%;
+  margin: 16px 8px 0 8px;
+}
+
+input.string:focus, input.numeric:focus {
+  outline: none;
+}
+
+.placeholder {
+  text-indent: 8px;
+}
+
+.btn-wrapper {
+  /*border: 2px solid red;*/
+  display: inline-flex;
+  width: 55%;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 50px;
+}
 
 .btn-form-contribute {
   background-color: rgba(147, 178, 154, 1);
@@ -186,7 +250,23 @@ footer > p {
   color: white;
   font-size: 1.2em;
   border-style: none;
+  cursor: pointer;
+  opacity: .8;
 }
+
+.btn-form-contribute:hover {
+  opacity: 1;
+}
+
+.btn-revenir {
+  font-size: 1.2em;
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  /*width: 50px;*/
+  padding: 8px 24px;
+  border-radius: 8px;
+}
+
 
 /*---- Media Queries ----*/
 
@@ -199,5 +279,24 @@ footer > p {
     text-align: center;
     font-size: 5em;
     letter-spacing: .05em;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    /*width: 100%;*/
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  .btn-revenir {
+    color: #4A4A4A;
+    border: 1px solid #4A4A4A;
+    margin-top: 16px;
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-size: 1.2em;
   }
 }

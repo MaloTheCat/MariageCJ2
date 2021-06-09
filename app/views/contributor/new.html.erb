@@ -1,13 +1,24 @@
-<h1>Votre contribution</h1>
+<div class="background-img">
+  <div class="anyway">
 
-<%= simple_form_for(:contributor, url: contributor_index_path) do |f| %>
-  <%= f.input :id, as: :integer, as: :hidden,
-              input_html: { value: (Contributor.all.count)+1 }
-  %>
-  <%= f.input :gift_id, as: :hidden, :input_html => { value: params["format"] } %>
-  <%= f.input :name, label: "Prénom et Nom"%>
-  <%= f.input :contribution, as: :integer, label: "Votre contribution" %>
-  <%= f.submit value: "Contribuer", class: "btn-form-contribute" %>
-<% end %>
+  <div class="container">
+    <h4>Votre contribution</h4>
+    <div class="form-wrapper">
+      <%= simple_form_for(:contributor, url: contributor_index_path) do |f| %>
+        <%= f.input :id, as: :integer, as: :hidden,
+                    input_html: { value: (Contributor.all.count)+1 } %>
+        <%= f.input :gift_id, as: :hidden, :input_html => { value: params["format"] } %>
+        <div class="line-wrapper">
+          <%= f.input :name, label: false, placeholder: "Prénom et Nom", input_html: { class: 'placeholder' } %>
+          <%= f.input :contribution, as: :integer, label: false, placeholder: "Contribution", input_html: { class: 'placeholder' } %>
+        </div>
+        <div class="btn-wrapper">
+          <%= f.submit value: "Contribuer", class: "btn-form-contribute" %>
+          <%= link_to "Revenir", root_path, class: "btn-revenir" %>
+        </div>
+      <% end %>
 
-<%= link_to "Revenir", root_path %>
+    </div>
+  </div>
+  </div>
+</div>
