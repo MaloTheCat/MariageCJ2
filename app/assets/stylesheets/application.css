@@ -141,7 +141,7 @@ p {
   display: grid;
   grid-template-columns: auto 100px 100px;
   grid-template-rows: repeat(1, 50px);
-  background-color: rgba(208, 192, 220, .5);
+  /*background-color: rgba(208, 192, 220, .5);*/
 }
 
 .items > li {
@@ -166,6 +166,14 @@ p {
   justify-content: center;
   height: 35px;
   margin: auto 0;
+}
+
+.item-done {
+  background-color: green;
+}
+
+.item-done > li {
+  color: white;
 }
 
 /*---- Footer ----*/

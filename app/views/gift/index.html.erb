@@ -66,7 +66,7 @@
     </div>
 
     <% @gifts.each_with_index do |gift, index| %>
-      <% if !gift.fields.empty? %>
+      <% if !gift.fields.empty? && gift.fields["remainingPrice"] != 0 %>
         <%= link_to new_contributor_path(gift.id) do %>
           <div class="myBtn">
 
@@ -75,7 +75,7 @@
                 <li style="padding-left: 20px;"><%= gift.fields["gift"] %></li>
                 <% unless gift.fields["remainingPrice"].nil? %>
                   <li><%= gift.fields["initialPrice"] %>€</li>
-                  <li><%= gift.fields["remainingPrice"]%>€</li>
+                  <li><%= gift.fields["remainingPrice"] %>€</li>
                 <% end %>
               </div>
 
@@ -84,7 +84,7 @@
                 <li style="padding-left: 20px;"><%= gift.fields["gift"] %></li>
                 <% unless gift.fields["remainingPrice"].nil? %>
                   <li><%= gift.fields["initialPrice"] %>€</li>
-                  <li><%= gift.fields["remainingPrice"]%>€</li>
+                  <li><%= gift.fields["remainingPrice"] %>€</li>
                 <% end %>
               </div>
             <%#= link_to "Show", "#{gift_path(gift.id)}" %>
@@ -93,6 +93,11 @@
 
           </div>
         <% end %>
+      <% else %>
+        <div class="items item-done">
+          <li style="padding-left: 25%;">"<%= gift.fields["gift"] %>" a été atteint</li>
+          <li style="border-left: none;">Merci &#10084</li>
+        </div>
       <% end %>
     <% end %>
   </ul>
