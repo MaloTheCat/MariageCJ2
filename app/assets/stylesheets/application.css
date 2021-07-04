@@ -337,7 +337,7 @@ input.string:focus, input.numeric:focus {
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 460px) {
   .items {
     grid-template-rows: repeat(1, 120px);
   }
