@@ -336,3 +336,19 @@ input.string:focus, input.numeric:focus {
     font-size: 1.2em;
   }
 }
+
+@media only screen and (max-width: 375px) {
+  .items {
+    grid-template-rows: repeat(1, 120px);
+  }
+
+  footer {
+    height: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  footer > p {
+    padding: 0 50px;
+  }
+}
