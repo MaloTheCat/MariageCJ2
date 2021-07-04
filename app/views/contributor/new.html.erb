@@ -12,8 +12,18 @@
           <%= f.input :name, label: false, placeholder: "Prénom et Nom", input_html: { class: 'placeholder' } %>
           <%= f.input :contribution, as: :integer, label: false, placeholder: "Contribution", input_html: { class: 'placeholder' } %>
         </div>
+        <div class="text-wrapper">
+          <p>
+            La contribution est une promesse de don</br>à mettre dans l'urne le jour J.
+            </br>
+            Pour Paypal, merci de vous connecter à votre compte et de rentrer le montant. L'adresse d'envoi est la suivante : j.vanderbosse@gmail.com
+            </p>
+        </div>
         <div class="btn-wrapper">
           <%= f.submit value: "Contribuer", class: "btn-form-contribute" %>
+          <div class="btn-paypal">
+            <a href="https://www.paypal.com/fr/signin">Paypal</a>
+          </div>
           <%= link_to "Revenir", root_path, class: "btn-revenir" %>
         </div>
       <% end %>

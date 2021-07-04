@@ -238,17 +238,24 @@ input.string:focus, input.numeric:focus {
   outline: none;
 }
 
+.text-wrapper {
+  margin: 50px 0;
+  padding: 0 20px;
+}
+
+.text-wrapper > p {
+  color: rgb(40, 40, 40);
+  font-size: 1em;
+  text-align: center;
+}
+
 .placeholder {
   text-indent: 8px;
 }
 
 .btn-wrapper {
-  /*border: 2px solid red;*/
   display: inline-flex;
-  width: 55%;
   justify-content: space-between;
-  margin: auto;
-  margin-top: 50px;
 }
 
 .btn-form-contribute {
@@ -264,6 +271,26 @@ input.string:focus, input.numeric:focus {
 
 .btn-form-contribute:hover {
   opacity: 1;
+}
+
+.btn-paypal {
+  background-color: blue;
+  padding: 8px 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.btn-paypal > a {
+  color: white;
+  padding: 8px 16px;
+  color: white;
+  font-size: 1.2em;
+  border-style: none;
+  cursor: pointer;
+  opacity: .8;
 }
 
 .btn-revenir {
@@ -295,6 +322,7 @@ input.string:focus, input.numeric:focus {
     display: flex;
     flex-direction: column;
     /*width: 100%;*/
+    width: 55%;
     margin: auto;
     margin-top: 50px;
   }
